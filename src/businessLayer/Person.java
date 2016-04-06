@@ -2,6 +2,7 @@ package businessLayer;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import dataLayer.CustomerConnect;
 
 import dataLayer.CustomerConnect;
 
@@ -12,6 +13,7 @@ public class Person
 	private String lastname;
 	private String direction;
 	private long phon;
+	private CustomerConnect connect;
 	
 	public Person()
 	{
@@ -91,8 +93,9 @@ public class Person
 		return false;
 	}
 	
-	public void search(String typeSearch)
+	public void delete(String idPerson) throws SQLException
 	{
-		//aqui va codigo
+		connect = new CustomerConnect();
+		connect.delet(idPerson);
 	}
 }

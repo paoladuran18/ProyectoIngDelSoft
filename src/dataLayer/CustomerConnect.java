@@ -28,6 +28,7 @@ public class CustomerConnect
 			paInsert.executeUpdate();
 			connection.close();
 			connector.close();
+			paInsert.close();
 	
 	}
 	
@@ -45,7 +46,16 @@ public class CustomerConnect
 					rs.getString(4), rs.getLong(5)));
 		st1.close();
 		rs.close();
+		t.close();
+		connection.close();
 			
 		return perList;
+	}
+	
+	public void delet(String idCustomer) throws SQLException
+	{
+		Connection cn = connection.getConnection();
+		paInsert = cn.prepareStatement("DELETE FROM cliente WHERE idCliente=" + idCustomer);
+		paInsert.executeUpdate();
 	}
 }
